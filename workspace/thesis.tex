@@ -1,0 +1,390 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+    11pt, % The default document font size, options: 10pt, 11pt, 12pt
+    %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+    english, % ngerman for German
+    onehalfspacing, % Single line spacing, alternatives: singlespacing, onehalfspacing or doublespacing
+    %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+    %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+    %liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+    %toctotoc, % Uncomment to add the main table of contents to the table of contents
+    %parskip, % Uncomment to add space between paragraphs
+    %nohyperref, % Uncomment to not load the hyperref package
+    headsepline, % Uncomment to get a line under the header
+    %chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+    %consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage{scigeneral}
+
+\usepackage{cases}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+% \usepackage{mlmodern/latex/mlmodern}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+% \usepackage{tgbonum}
+
+
+
+\usepackage{breqn}
+
+% \usepackage{mathpazo} % Use the Palatino font by default
+
+% \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+% \usepackage[
+    % backend = bibtex,
+    % style = numeric,
+    % % style = apa,
+    % doi = false,
+    % natbib = true, 
+    % sorting = none,
+    % sortcites = true,
+% ]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[
+    backend = bibtex,
+    natbib = true, 
+    doi = false, 
+    style = numeric-comp,
+    bibstyle = numeric-comp,
+    sorting = none, 
+    sortcites = true,
+    isbn = false,
+    doi = false,
+    maxbibnames=99]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{zotero.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	FIGURE SETTINGS
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper = a4paper, % Change to letterpaper for US letter
+	inner = 2.54cm, % Inner margin
+	outer = 2.54cm, % Outer margin
+	% outer = 3.8cm, % Outer margin
+	% bindingoffset = .5cm, % Binding offset
+	bindingoffset = 0cm, % Binding offset
+	top = 1.5cm, % Top margin
+	bottom = 1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+\newcommand{\revision}[1]{\textcolor{red}{#1}}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Parametric Array Loudspeakers and Applications in Active Noise Control} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Prof. \href{mailto:Ray.Kirby@uts.edu.au}{Ray \textsc{Kirby}}\\ Dr. \href{mailto:Mahmoud.Karimi@uts.edu.au}{Mahmoud \textsc{Karimi}}\\ Prof. \href{mailto:xjqiu@nju.edu.cn}{Xiaojun \textsc{Qiu}}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Jiaxin \textsc{Zhong}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{http://www.uts.edu.au}{University of Technology Sydney}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{\href{https://www.uts.edu.au/about/faculty-engineering-and-information-technology/mechanical-and-mechatronic-engineering}{School of Mechanical and Mechatronic Engineering (MME)}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{https://www.uts.edu.au/research-and-teaching/our-research/centre-audio-acoustics-and-vibration}{Centre for Audio, Acoustics and Vibration (CAAV)}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{https://www.uts.edu.au/about/faculty-engineering-and-information-technology}{Faculty of Engineering and Information Technology}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+\usepackage{soul}
+\sethlcolor{white}
+\newcommand{\revA}[1]{\hl{#1}}
+% \newcommand{\revA}[1]{{#1}}
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+ 
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+% \href{http://www.johnsmith.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\href{http://jiaxinzhong.com/}{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisors:} \\
+% {A/Prof. \href{Ray.Kirby@uts.edu.au}{Ray \textsc{Kirby}}\\ Dr. \href{Mahmoud.Karimi@uts.edu.au}{Mahmoud \textsc{Karimi}}\\ Prof. \href{xjqiu@nju.edu.cn}{Xiaojun \textsc{Qiu}}} % Supervisor name - remove the \href bracket to remove the link  
+{\supname} % Supervisor name - remove the \href bracket to remove the link  
+% \href{http://www.jamessmith.com}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+ 
+\vfill
+
+\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+\textit{in the}\\[0.4cm]
+\groupname\\\deptname\\[2cm] % Research group name and department name
+ 
+\vfill
+
+{\large \today}\\[4cm] % Date
+%\includegraphics{Logo} % University/department logo - uncomment to place it
+ 
+\vfill
+\end{center}
+\end{titlepage}
+\addcontentsline{toc}{chapter}{Titlepage}
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+\noindent I, \authorname, declare that this thesis entitled, \enquote{\ttitle}, is submitted in fulfilment of the requirements for the award of Doctorate of Philosophy in the school of Mechanical and Mechatronic Engineering at the University of Technology Sydney. 
+The work presented within is my own. 
+I confirm that:
+\begin{itemize} 
+    \item This thesis is wholly my own work unless otherwise referenced or acknowledged. In addition, I certify that all information sources and literature used are indicated in the thesis.  
+\item This document has not been submitted for qualifications at any other academic institution.
+\item This research is supported by the Australian Government Research Training Program.  
+    % \item I have acknowledged all main sources of help;
+% \item where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+\end{itemize}
+ 
+\noindent Signature: \includegraphics[width = 4cm]{fig/Signature-EN1-20181030.jpg}\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+ 
+\noindent Date: 27 Jan 2022 \\
+\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+\end{declaration}
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+% \vspace*{0.2\textheight}
+
+% \noindent\enquote{\itshape Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism.}\bigbreak
+
+% \hfill Dave Barry
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+\input{abstract}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\begin{frontmatterpage}{List of Publications}
+    \addchaptertocentry{List of Publications}
+    \label{chap:publication}
+    Much of this work has   either been published or submitted for publication as journal papers and conference proceedings. The list is as follows:
+
+    \noindent \paragraph{In journals}
+    \begin{outline}[enumerate]
+        \1 \textbf{Jiaxin Zhong}, Ray Kirby, Mahmoud Karimi, Haishan Zou, and Xiaojun Qiu. \quotes{Scattering by a Rigid Sphere of Audio Sound Generated by a Parametric Array Loudspeaker}. In: \textit{The Journal of the Acoustical Society of America} 151.3 (2022), pp. 1615--1626.
+        \1 \textbf{Jiaxin Zhong}, Tao Zhuang, Ray Kirby, Mahmoud Karimi, Haishan Zou, and Xiaojun Qiu. \quotes{Quiet Zone Generation in a Free Field with Multiple Parametric Array Loudspeakers}. In: \textit{The Journal of the Acoustical Society of America} 151.2 (2022), pp. 1235--1245.
+        \1 \textbf{Jiaxin Zhong}, Ray Kirby, Mahmoud Karimi, and Haishan Zou. \quotes{A Cylindrical Expansion of the Audio Sound for a Steerable Parametric Array Loudspeaker}. In: \textit{The Journal of the Acoustical Society of America} 150.5 (2021), pp. 3797--3806.
+        \1 \textbf{Jiaxin Zhong}, Ray Kirby, and Xiaojun Qiu. \quotes{The Near Field, Westervelt Far Field, and Inverse-Law Far Field of the Audio Sound Generated by Parametric Array Loudspeakers}. In: \textit{The Journal of the Acoustical Society of America} 149.3 (2021), pp. 1524--1535.
+        \1 \textbf{Jiaxin Zhong} and Xiaojun Qiu. \quotes{On the Spherical Expansion for Calculating the Sound Radiated by a Baffled Circular Piston}. In: \textit{Journal of Theoretical and Computational Acoustics} (2020), p. 2050026.
+        \1 \textbf{Jiaxin Zhong}, Shuping Wang, Ray Kirby, and Xiaojun Qiu. \quotes{Reflection of Audio Sounds Generated by a Parametric Array Loudspeaker}. In: \textit{The Journal of the Acoustical Society of America} 148.4 (2020), pp. 2327--2336.
+        \1 \textbf{Jiaxin Zhong}, Shuping Wang, Ray Kirby, and Xiaojun Qiu. \quotes{Insertion Loss of a Thin Partition for Audio Sounds Generated by a Parametric Array Loudspeaker}. In: \textit{The Journal of the Acoustical Society of America} 148.1 (2020), pp. 226--235.
+        \1 \textbf{Jiaxin Zhong}, Ray Kirby, and Xiaojun Qiu. \quotes{A Spherical Expansion for Audio Sounds Generated by a Circular Parametric Array Loudspeaker}. In: \textit{The Journal of the Acous- tical Society of America} 147.5 (2020), pp. 3502--3510.
+        \1 \textbf{Jiaxin Zhong}, Ray Kirby, and Xiaojun Qiu. \quotes{A Non-Paraxial Model for the Audio Sound behind a Non-Baffled Parametric Array Loudspeaker (L)}. In: \textit{The Journal of the Acoustical Society of America} 147.3 (2020), pp. 1577--1580.
+        \1 \textbf{Jiaxin Zhong}, Tao Zhuang, Ray Kirby, Mahmoud Karimi, Xiaojun Qiu, Haishan Zou, Jing Lu, \quotes{Audio Sound Field Generated by a Focusing Parametric Array Loudspeaker}, In: \textit{IEEE Trasactions on Audio, Speech, and Language Processing} Under Review (2022).
+    \end{outline}
+    \noindent \paragraph{In conference proceedings}
+    \begin{outline}[enumerate]
+        \1 \textbf{Jiaxin Zhong}, Tong Xiao, Benjamin Halkon, Ray Kirby, and Xiaojun Qiu. \quotes{An Experimental Study on the Active Noise Control Using a Parametric Array Loudspeaker}. In: \textit{InterNoise 2020}. Seoul, Korea, 2020.
+    \end{outline}
+
+    The following publications are also outcomes during the PhD candidature, but not included in this thesis:
+    \noindent \paragraph{In journals}
+    \begin{outline}[enumerate]
+        \1 \textbf{Jiaxin Zhong}, Baicun Chen, Jianchen Tao, and Xiaojun Qiu. \quotes{The Performance of Active Noise Control Systems on Ground with Two Parallel Reflecting Surfaces}. In: \textit{The Journal of the Acoustical Society of America} 147.5 (2020), pp. 3397--3407.
+        \1 \textbf{Jiaxin Zhong}, Jiancheng Tao, and Xiaojun Qiu. \quotes{Increasing the Performance of Active Noise Control Systems on Ground with Two Vertical Reflecting Surfaces with an Included Angle}. In: \textit{The Journal of the Acoustical Society of America} 146.6 (2019), pp. 4075--4085.
+        \1 Shuping Wang, \textbf{Jiaxin Zhong}, Xiaojun Qiu, and Ian Burnett. \quotes{A Note on Using Panel Diffusers to Improve Sound Field Diffusivity in Reverberation Rooms below 100 Hz}. In: \textit{Applied Acoustics} 169 (2020), p. 107471.
+    \end{outline}
+    \noindent \paragraph{In conference proceedings}
+    \begin{outline}[enumerate]
+        \1 \textbf{Jiaxin Zhong}, Jiancheng Tao, and Xiaojun Qiu. \quotes{A Numerical Study on Active Noise Radiation Control Systems between Two Parallel Reflecting Surfaces}. In: \textit{The 18th Asia-Pacific Vibration Conference}. Sydney, Australia, 2019.
+        \1 Xiaojun Qiu, Qiaoxi Zhu, Shuping Wang, and \textbf{Jiaxin Zhong}. \quotes{A Case Study on the New Reverberation Room Built in University of Technology Sydney}. In: \textit{Proceedings of the 23rd International Congress on Acoustics}. Aachen, Germany, 2019.
+    \end{outline}
+\end{frontmatterpage}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+
+\noindent Throughout the preparing and writing of this thesis, I have received a great deal of support and assistance. 
+
+First of all, I would like to thank my principal supervisor, \revA{Prof.} Ray Kirby, and my co-supervisor, Dr. Mahmoud Karimi, whose expertise is invaluable in supervising my research and writing academic articles.
+Your insightful feedback and comments pushed me to sharpen my thinking and brought my work to a high level.
+I would also like to express my sincere gratitude to my previous principal supervisor, Prof. Xiaojun Qiu, for his guidance, encouragement, and support during my PhD candidature. 
+I am grateful to my teammates at UTS, Dr. Benjamin Halkon, Dr. Sipei Zhao, Dr. Shuping Wang, Dr. Qiaoxi Zhu, Dr. Somanath Pradhan, Mr. Tong Xiao, Mr. Mitchell Cullen, for their valuable assistance and suggestions on my research work.
+Thanks to all staff members of the School of Mechanical and Mechatronic Engineering for always being friendly and helpful.
+The financial support from the Australian Research Council through the Linkage Project (LP160100616) is acknowledged. 
+
+Furthermore, I would like to thank Mr. Tao Zhuang, Mr. Kangkang Wang, Dr. Chengbo Hu, Dr. Haishan Zou, Dr. Kai Chen, Dr. Zhibin Lin, A/Prof. Jianchen Tao, and Prof. Jing Lu in Nanjing University for their kind support when I was stuck in China during the COVID-19 pandemic.
+I thank you for giving the access to acoustics labs in Nanjing University.
+Without your support, I could not conduct experiments to finish my thesis.
+
+Finally, I would like to express my endless gratitude to my parents, Mr. Ruiliang Zhong and Ms. Weiguo Liao, for their wise counsel, sympathetic ear, and unconditional support.
+You are always there for me.
+
+
+
+% This research was supported by the Australian Research Council’s Linkage Project funding scheme (LP160100616). The second and fifth authors also gratefully acknowledge the financial support by National Natural Science Foundation of China (11874219). The authors would like to thank Mr. Tong Xiao for conducting some preliminary experiments at University of Technology Sydney. 
+\end{acknowledgements}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+% {
+    % \hypersetup{hidelinks}
+    \tableofcontents % Prints the main table of contents
+% }
+\addcontentsline{toc}{chapter}{Contents}
+
+\listoffigures % Prints the list of figures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables % Prints the list of tables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\input{abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+% \begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+    % $c_{0}$ & linear speed of sound & \SI{343}{m/s} at ?? \\
+    % $\rho_0$ & linear ambient density of air & \SI{1.21}{kg/s^3}\\
+    % $\beta$ & the nonlinear coefficient in air & 1.2\\
+    % $\uppi$ & Pi & 3.14159 \\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+% \end{constants}
+
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+\input{symbols}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+% \dedicatory{For/Dedicated to/To my\ldots} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Chapters/Chapter1}
+\include{Chapters/Chapter2} 
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4} 
+\include{Chapters/Chapter5} 
+\include{Chapters/Chapter6} 
+\include{Chapters/Chapter7} 
+% \include{Chapters/Chapter0} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/AppendixA}
+\include{Appendices/AppendixAbsorption}
+% \include{Appendices/AppendixB}
+% \include{Appendices/AppendixC}
+% \include{Appendices/AppendixEquipment}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\printbibliography[heading=bibintoc, title = {\revA{References}}]
+
+%----------------------------------------------------------------------------------------
+
+\end{document}  

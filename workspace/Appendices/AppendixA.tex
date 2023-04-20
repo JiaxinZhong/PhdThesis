@@ -1,0 +1,301 @@
+\chapter{Detailed Derivations of Formulae} % Main appendix title
+
+\label{append:1} % For referencing this appendix elsewhere, use \ref{AppendixA}
+
+\section{Integral of triple Legendre polynomials}
+
+The formula for the integral of triple Legendre polynomials is given by Eq.~(11) in \cite{Mavromatis1999GeneralizedFormulaIntegral}
+\begin{equation}
+    \int_0^\uppi P_{n_1}(\cos\theta)
+    P_{n_2}(\cos\theta) P_{n_3}(\cos\theta)
+    \sin \theta \dd \theta
+    = 2\mqty(n_1 & n_2 & n_3 \\ 0 & 0 & 0)^2
+    \label{eq:legendre:9032rfjsd}
+\end{equation}
+where $\mqty(n_1 & n_2 & n_3 \\ 0 & 0 & 0)$ is the Wigner $3j$ symbol that can be calculated using the formula, see Eq.~(C.23) in \cite{Messiah1962QuantumMechanicsVolume}
+\begin{equation}
+    \mqty(n_1 & n_2 & n_3 \\ 0 & 0 & 0)
+    =
+    \begin{dcases}
+        0, & 2n_0 = \text{odd}\\
+        \begin{split}
+        & \frac{(-1)^{n_0}n_0!}{(n_0-n_1)!(n_0-n_2)!(n_0-n_3)!}\\
+        &\quad \times \sqrt{\frac{(2n_0-2n_1)!(2n_0-2n_2)!(2n_0-2n_3)!}{(2n_0+1)!}},
+        \end{split}
+           & 2n_0=\text{even}
+    \end{dcases}
+    \label{eq:p39fsdp9801}
+\end{equation}
+and the triangular inequality should be satisfied, i.e., $|n_1-n_2|\leq n_3\leq n_1+n_2$,
+where $2n_0=n_1+n_2+n_3$.
+
+The following integral is required to calculate
+\begin{equation}
+    I(l,m,n) 
+    =
+    \int_{-1}^1 \dv{P_{2l}(x)}{x}
+    \dv{P_{2m}(x)}{x} P_{2n}(x)(1-x^2)\dd x 
+    \label{eq:asp893sd198}
+\end{equation}
+According to the relations between the Legendre polynomial and the associated Legendre function, see Eq.~(4.4.1) in \cite{Zhang1996ComputationSpecialFunctions}
+\begin{equation}
+    P_{\mu}^\nu (x) = (-1)^\nu (1-x^2)^{\nu/2}\dv[\nu]{}{x}P_\mu(x)
+\end{equation}
+and the definite integral of triple associated Legendre function, see Eq.~(11) in \cite{Mavromatis1999GeneralizedFormulaIntegral}
+\begin{equation}
+    \begin{split}
+    \int_{-1}^1 P_{\mu_1}^{\nu_1}(x)P_{\mu_2}^{\nu_2}(x) P_{\mu_3}^{\nu_3}(x)\dd x
+    = 
+    & 2(-1)^{\nu_3}
+        \mqty(\mu_1 & \mu_2 & \mu_3 \\ 0 & 0 & 0) 
+        \mqty(\mu_1 & \mu_2 & \mu_3 \\ \nu_1 & \nu_2 & -\nu_3)\\
+    &\times 
+    \sqrt{\frac{(\mu_1+\nu_1)!(\mu_2+\nu_2)!(\mu_3+\nu_3)!}{(\mu_1-\nu_1)!(\mu_2-\nu_2)!(\mu_3-\nu_3)!}}
+    \end{split}
+\end{equation}
+the integral Eq.~(\ref{eq:asp893sd198}) can be obtained as
+\begin{equation}
+    I(l,m,n) = -2\mqty(2l&2m&2n\\0&0&0)
+    \mqty(2l & 2m & 2n \\ -1 & 1 & 0)
+    \sqrt{4lm(2l+1)(2m+1)}
+    \label{eq:90fjsd2193}
+\end{equation}
+where the first Wigner $3j$ symbol can be calculated with Eq.~(\ref{eq:p39fsdp9801}), and the second one can be rewritten by using the symmetric relations as
+\begin{equation}
+    \mqty(2l & 2m & 2n \\ -1 & 1 & 0)
+    = 
+    - \mqty(2n & 2m & 2l \\ 0 & 1 & -1)
+    = - \mqty(2n & 2m & 2l \\ 0 & -1 & 1)
+\end{equation}
+By setting $m_1=m_2=m_3=0$ in Eq.~(9a) of \cite{Schulten1975ExactRecursiveEvaluation}, one obtains the recurrence relation 
+\begin{equation}
+    C(1) \mqty(2n & 2m & 2l \\ 0 & 1 & -1)
+    + D(0)\mqty(2n & 2m & 2l \\ 0 & 0 & 0)
+    + C(0) \mqty(2n & 2m & 2l \\ 0 & -1 & 1) 
+    = 0
+    \label{eq:09fwe9fs}
+\end{equation}
+where $C$ and $D$ are obtained by Eqs.~(9b) and (9c) of \cite{Schulten1975ExactRecursiveEvaluation} as 
+\begin{equation}
+    \begin{dcases}
+        C(0) = C(1) = \sqrt{4lm(2l+1)(2m+1)}\\
+        D(0) = 2l(2l+1) +2m(2m+1) - 2n(2n+1)
+    \end{dcases}
+    \label{eq:90jfsdp991wfjdf}
+\end{equation}
+By substituting Eq.~(\ref{eq:90jfsdp991wfjdf}) into Eq.~(\ref{eq:09fwe9fs}), the second Wigner $3j$ symbol in Eq.~(\ref{eq:90fjsd2193}) can be represented by the first one. 
+Finally, the integral Eq.~(\ref{eq:asp893sd198}) is reduced to 
+\begin{equation}
+    I(l,m,n) = 2\qty[l(2l+1)+m(2m+1)-n(2n+1)]\mqty(2l & 2m & 2n \\ 0 & 0 & 0)^2
+    \label{eq:triple:23908fjs}
+\end{equation}
+
+\section{Normalized Bessel functions}
+It is found in the simulations that the calculation of the Bessel functions overflow or underflow when the argument is much smaller than the order. Therefore, normalized Bessel and Hankel functions are used in this thesis and defined as
+\begin{equation}
+    \widebar{J}_n(z)
+   =n!\qty(\frac{2}{z})^n J_n(z)
+\end{equation}
+\begin{equation}
+    \widebar{H}_n(z) = \frac{\rmi \uppi}{n!}\qty(\frac{z}{2})^n H_n(z)
+\end{equation}
+Using these definitions, the normalized Bessel and Hankel functions have the limiting behavior when $\abs{z} \to 0$ as
+\begin{equation}
+    \widebar{J}_n(z) \to 1
+    \qc
+    n\widebar{H}_n(z)\to1
+\end{equation}
+The following relation required in Sec.~\ref{sec:cwe_source} is then obtained as
+\begin{equation}
+    J_n(z_1)H_n(z_2)
+    = 
+    \frac{1}{\rmi \uppi}
+    \qty(\frac{z_1}{z_2})^n
+    \widebar{J}_n(z_1)
+    \widebar{H}_n(z_2)
+\end{equation}
+By using the recurrence relation, see Eq.~(5.1.23) in \cite{Zhang1996ComputationSpecialFunctions}
+\begin{equation}
+    B_n'(z) = \frac{n}{z}B_n(z) - B_{n+1}(z)
+    \label{eq:2389f90ed9f2}
+\end{equation}
+The following products required in Eqs.~(\ref{eq:2390rjasd023jdfja32p}) and (\ref{eq:cwe_radial_ext2133}) are obtained as
+\begin{equation}
+    J'_n(z_1)H_n(z_2) = 
+    \frac{nz_1^{n-1}}{\rmi \uppi z_2^n}
+    \widebar{J}_n(z_1)\widebar{H}_n(z_2)
+    -
+    \frac{z_1^{n+1}}{2\rmi \uppi (n+1)z_2^n}
+    \widebar{J}_{n+1}(z_1)
+    \widebar{H}_n (z_2)
+    \label{eq:2389r89uujj}
+\end{equation}
+\begin{equation}
+    J_n(z_1)H_n'(z_2)
+    =
+    \frac{n z_1^n}{\rmi \uppi z_2^{n+1}} 
+    \widebar{J}_n(z_1)
+    \widebar{H}_n(z_2)
+    - \frac{2(n+1)z_1^n}{\rmi \uppi z_2^{n+1}}
+    \widebar{J}_n(z_1)
+    \widebar{H}_{n+1}(z_2)
+    \label{eq:2898989999}
+\end{equation}
+
+The recurrence relations, see Eqs.~(5.1.21) in \cite{Zhang1996ComputationSpecialFunctions}, yield
+\begin{equation}
+    \widebar{J}_{n+1}(z)
+    =
+    \frac{1}{4n(n+1)}
+    \qty[\widebar{J}_n(z)- \widebar{J}_{n-1}(z)]
+    \label{eq:3290s}
+\end{equation}
+\begin{equation}
+    \widebar{H}_{n+1}(z)
+    = 
+    \frac{n}{n+1}\widebar{H}_n(z)
+    -\frac{z^2}{4n(n+1)} \widebar{H}_{n-1}(z)
+    \label{eq:we9sdsppp}
+\end{equation}
+Numerical results can then be obtained using the backward and forward recurrence relations given by Eqs.~(\ref{eq:3290s}) and (\ref{eq:we9sdsppp}), respectively.
+
+\section{Normalized spherical Bessel functions}
+The series in Eqs.~(\ref{eq:sphere:phi2891}) and (\ref{eq:1130912301201020023103123}) were found to require at least 1000 terms to deliver satisfactory convergence.
+In this thesis, 2000 terms are chosen, and it has been confirmed the error of the calculation of the sound pressure level is less than 0.1 dB. 
+This is because the wavelength of the ultrasound is much smaller than the size of the PAL as well as the sphere and the separation between them. 
+However, spherical Bessel and Hankel functions are known to overflow and/or underflow (exceeding the range of the floating point used in the computer) for orders much larger than the argument \cite{Majic2020NumericallyStableFormulation}. 
+To overcome this problem, normalized spherical Bessel and Hankel functions are used in this thesis, which are related to the unnormalized ones as \cite{Majic2020NumericallyStableFormulation}
+\begin{equation}
+    \widebar{\rmj}_n(z) =\frac{(2n+1)!!}{z^n} \rmj_n(z)
+\end{equation}
+\begin{equation}
+    \widebar{h}_n(z) =
+    \frac{\rmi z^{n+1}}{(2n-1)!!} h_n(z)
+\end{equation}
+where $!!$ denotes a double factorial. MATLAB was used for the computations of the normalized spherical Bessel and Hankel functions, see the algorithm in \cite{Majic2020NumericallyStableFormulation}.
+
+By using the relations Eq.~(22) and Eq.~(8.1.27) in \cite{Zhang1996ComputationSpecialFunctions}, the following relations are obtained and used in this work
+\begin{equation}
+    \rmj_n(z_1)
+    \rmh_n(z_2) = \frac{z_1^n}{\rmi(2n+1) z_2^{n+1}} \widebar{\rmj}_n(z_1)\widebar{\rmh}_n (z_2)
+\end{equation}
+\begin{equation}
+    \rmj'_n(z_1)
+    \rmh_n(z_2)
+    = 
+    \frac{z_1^{n-1}}{\rmi (2n+1)z_2^{n+1}}
+    \widebar{\rmh}_n(z_2)
+    \qty[n\widebar{\rmj}_n(z_1) - \frac{z_1^2}{2n+3} \widebar{\rmj}_{n+1}(z_1)]
+\end{equation}
+\begin{equation}
+    \rmj_n(z_1)
+    \rmh'_n(z_2) 
+    = \frac{z_1^n}{\rmi z_2^{n+2}}\bar{\rmj}_n(z_1)
+    \qty[\frac{n}{2n+1}\bar{\rmh}_n(z_2) - \bar{\rmh}_{n+1}(z_2)]
+\end{equation}
+\begin{equation}
+    \frac{\rmj_n'(z_1)}{\rmj_n(z_2)}
+    =\frac{z\subt{1}^{n-1}}{z_2^n\bar{\rmj}_n(z_2)}
+    \qty[n\bar{\rmj}_n(z\subt{1}) - \frac{z\subt{1}^2}{2n+3} \bar{\rmj}_{n+1}(z\subt{1})]
+\end{equation}
+\begin{equation}
+    \frac{\rmh'_n(z\subt{1})}{\rmh_n(z_0)}
+    = 
+    \frac{z_2^{n+1}}{z\subt{d}^{n+2}\bar{\rmh}_n(z_2)}
+    \qty[n\bar{\rmh}_n(z\subt{1}) - (2n+1)\bar{\rmh}_{n+1}(z\subt{1})]
+\end{equation}
+It is found in the simulations that the computation of the spherical Bessel and Hankel functions using these relations do not overflow and/or underflow when the orders are up to $10^4$ for the parameters used in this thesis. 
+
+\section{Calculation of the integral $\int J_0(x)\dd x$}
+In this section, we will prove that 
+\begin{equation}
+    \int J_0(x)\dd x = 
+    xJ_0(x) + \frac{\uppi x}{2 }\qty[J_1(x)\vb{H}_0(x) - J_0(x)\vb{H}_1(x)]
+    \label{eq:123040210}
+\end{equation}
+where $\vb{H}_n(\cdot)$ is the Struve function of order $n$.
+
+It is to show the recurrence relation for Bessel functions
+\begin{equation}
+    \dv{}{x}\qty[xJ_1(x)] = xJ_0(x)
+    \label{eq:1203040}
+\end{equation}
+and it is know the recurrence relation for Struve functions 
+\begin{equation}
+    \vb{H}_n'(x) =  \vb{H}_{n-1}(x) - \frac{n}{x}\vb{H}_n(z)
+    \label{eq:230204230}
+\end{equation}
+By using Eqs.~(\ref{eq:1203040}) and (\ref{eq:230204230}), one obtains
+\begin{equation}
+    \dv{}{x} \qty[xJ_1(x) \vb{H}_0(x)] = xJ_0(x) \vb{H}_0(x)  + xJ_1(x) \vb{H}_{-1}(x)
+    \label{eq:230234023}
+\end{equation}
+
+The following recurrence relation for Struve functions also holds
+\begin{equation}
+    \vb{H}_{n-1}(x) -\vb{H}_{n+1} (x)
+    = 2\vb{H}_n'(x)
+    -\frac{(x/2)^n}{ \sqrt{\uppi}\Gamma\qty(n+\frac{3}{2})}
+    \label{eq:12031023012}
+\end{equation}
+By using Eqs.~(\ref{eq:bew02}) and (\ref{eq:12031023012}),  one obtains 
+\begin{equation}
+    \dv{}{x}\qty[xJ_0(x)   \vb{H}_{-1}(x) ]
+    = -xJ_1(x)\vb{H}_{-1}(x) -xJ_0(x)\vb{H}_0(x)
+    +\frac{2J_0(x)}{\uppi}
+    \label{eq:10231024231}
+\end{equation}
+By combining Eqs.~(\ref{eq:230234023}) and (\ref{eq:10231024231}), we have 
+\begin{equation}
+    \dv{}{x}\qty(\frac{\uppi x}{2}\qty[J_0(x)\vb{H}_{-1}(x) + J_1(x)\vb{H}_0(x)])
+    = J_0(x)
+    \label{eq:130123402}
+\end{equation}
+Therefore,
+\begin{equation}
+    \int J_0(x) \dd x
+     =            \frac{\uppi x}{2}\qty[J_0(x)\vb{H}_{-1}(x) + J_1(x)\vb{H}_0(x)]
+    \label{eq:13124120341}
+\end{equation}
+By setting $n=0$ in the recurrence relation for Struve functions
+\begin{equation}
+    \vb{H}_{n-1}(x) + \vb{H}_{n+1}(x)  = \frac{2n}{x} \vb{H}_n(x) +\frac{(x/2)^n}{\sqrt{\uppi}\Gamma\qty(n+\frac{3}{2})}
+    \label{eq:120213124123}
+\end{equation}
+Eq.~(\ref{eq:13124120341}) is expressed as Eq.~(\ref{eq:123040210}).
+
+The numerical compuation of Struve functions of order 0 and 1 is required in Eq.~(\ref{eq:123040210}), and the simple approximation method can be found in \cite{Newman1984ApproximationsBesselStruve, Maurel2007InteractionSurfaceWave, Aarts2016EfficientApproximationStruve}.
+% In this thesis, the Struve function is approximated by the following polynomials for $0\leq x \leq 3$, see Table 3 in \cite{Newman1984ApproximationsBesselStruve}
+% \begin{equation}
+    % \begin{split}
+        % \vb{H}_0(x) =  
+        % & 1.909859164 ( x/3) 
+       % & - 1.909855001 (x/3)^3
+       % & + 0.687514637 (x/3)^5 \\
+    % - & 0.126164557 (x/3)^7
+      % &+ 0.013828813 (x/3)^9
+      % &- 0.000876918 (x/3)^{11}
+    % % + &\epsilon (x)
+    % % \qc 
+      % % & |\epsilon | < \num{1.2e-8}
+       % % &\\
+    % \end{split}
+    % \label{eq:f230sd}
+% \end{equation}
+% \begin{equation}
+    % \begin{split}
+    % \vb{H}_1(x) = 
+    % & 1.909859286 (x/3)^2
+    % &- 1.145914713 (x/3)^4
+    % &+ 0.294656958 (x/3)^6\\
+    % - &0.042070508 (x/3)^8
+      % &+ 0.003785727 (x/3)^{10}
+      % &- 0.000207183 (x/3)^{12}
+    % % + &\epsilon(x)
+    % % \qc
+      % % &|\epsilon | <\num{2.5e-9}
+      % % & \\
+    % \end{split}
+    % \label{eq:998fsdf}
+% \end{equation}
+
